@@ -129,7 +129,7 @@ class UsersController extends Controller
             unset($data['password']);
         }
 
-        $user->update();
+        $user->update($data);
 
         return redirect()->route('users.show', $user->id);
     }

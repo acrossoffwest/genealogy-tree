@@ -116,10 +116,10 @@ class User extends Authenticatable
     public function childs()
     {
         if ($this->gender_id == 2) {
-            return $this->hasMany(User::class, 'mother_id')->orderBy('birth_order');
+            return $this->hasMany(User::class, 'mother_id')->orderBy('dob')->orderBy('birth_order');
         }
 
-        return $this->hasMany(User::class, 'father_id')->orderBy('birth_order');
+        return $this->hasMany(User::class, 'father_id')->orderBy('dob')->orderBy('birth_order');
     }
 
     public function profileLink($type = 'profile')

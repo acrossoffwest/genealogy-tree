@@ -56,3 +56,28 @@
 2020-05-05 12:38:52,200 INFO exited: misc (exit status 0; not expected)
 2020-05-05 12:38:53,201 INFO gave up: misc entered FATAL state, too many start retries too quickly
 2020-05-05 12:39:01,270 INFO reaped unknown pid 120
+2020-05-05 13:46:15,406 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2020-05-05 13:46:15,406 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2020-05-05 13:46:15,408 INFO supervisord started with pid 1
+2020-05-05 13:46:16,411 INFO spawned: 'laravel-worker_00' with pid 8
+2020-05-05 13:46:16,414 INFO spawned: 'laravel-worker_01' with pid 9
+2020-05-05 13:46:16,417 INFO spawned: 'laravel-worker_02' with pid 10
+2020-05-05 13:46:16,421 INFO spawned: 'laravel-worker_03' with pid 11
+2020-05-05 13:46:16,425 INFO spawned: 'php-fpm' with pid 12
+2020-05-05 13:46:16,428 INFO spawned: 'misc' with pid 13
+2020-05-05 13:46:16,461 INFO exited: misc (exit status 0; not expected)
+2020-05-05 13:46:17,492 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-05-05 13:46:17,492 INFO success: laravel-worker_01 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-05-05 13:46:17,492 INFO success: laravel-worker_02 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-05-05 13:46:17,492 INFO success: laravel-worker_03 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-05-05 13:46:17,492 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-05-05 13:46:17,493 INFO spawned: 'misc' with pid 58
+2020-05-05 13:46:17,504 INFO reaped unknown pid 31
+2020-05-05 13:46:17,529 INFO exited: misc (exit status 0; not expected)
+2020-05-05 13:46:19,533 INFO spawned: 'misc' with pid 77
+2020-05-05 13:46:19,572 INFO reaped unknown pid 76
+2020-05-05 13:46:19,609 INFO exited: misc (exit status 0; not expected)
+2020-05-05 13:46:22,615 INFO spawned: 'misc' with pid 96
+2020-05-05 13:46:22,651 INFO reaped unknown pid 95
+2020-05-05 13:46:22,686 INFO exited: misc (exit status 0; not expected)
+2020-05-05 13:46:23,688 INFO gave up: misc entered FATAL state, too many start retries too quickly

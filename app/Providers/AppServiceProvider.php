@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -31,6 +32,10 @@ class AppServiceProvider extends ServiceProvider
 
             return $user && !\Hash::check($value, $user->password);
         });
+
+        if (config('app.secure')) {
+            URL::forceSchema('https');
+        }
     }
 
     /**

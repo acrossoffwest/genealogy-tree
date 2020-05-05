@@ -8,16 +8,18 @@ services:
       - "${NGINX_CONF_DIR}:/etc/nginx/conf.d"
     depends_on:
       - php
-      # - phpmyadmin
+      - phpmyadmin
+      - mysql
     networks:
       - server
       - nginx-proxy-network
       - database
     environment:
       - VIRTUAL_HOST=${DOMAINS},${PMA_DOMAIN}
+      - LETSENCRYPT_HOST=${DOMAINS},${PMA_DOMAIN}
 
   php:
-    build: ./php
+    image: acrossoffwest/php73-for-scheduler:0.0.0
     volumes:
       - "${APP_DIR}:/var/www/html"
       - "./supervisor:/etc/supervisor"
@@ -28,6 +30,14 @@ services:
     networks:
       - database
       - server
+
+  redis:
+    image: 'bitnami/redis:latest'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=no
+      - REDIS_PASSWORD="${REDIS_PASSWORD}"
+    networks:
+      - database
 
   mysql:
     image: mysql:5.7
@@ -41,23 +51,12 @@ services:
     networks:
       - database
 
-#  phpmyadmin:
-#    image: phpmyadmin/phpmyadmin
-#    expose:
-#      - "80"
-#    environment:
-#      PMA_HOST: mysql
-#    depends_on:
-#      - mysql
-#    networks:
-#      - database
-
-  redis:
-    image: redis:5.0.4
-    command: redis-server --requirepass "${REDIS_PASSWORD}"
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
     environment:
-      - ALLOW_EMPTY_PASSWORD=no
-      - REDIS_PASSWORD="${REDIS_PASSWORD}"
+      PMA_HOST: mysql
+    depends_on:
+      - mysql
     networks:
       - database
 
@@ -66,4 +65,4 @@ networks:
   server:
   nginx-proxy-network:
     external:
-        name: reverseproxy_default
+      name: reverseproxy_default

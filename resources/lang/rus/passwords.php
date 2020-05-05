@@ -13,11 +13,11 @@ return [
     |
     */
 
-    'password' => 'Passwords must be at least six characters and match the confirmation.',
-    'reset'    => 'Your password has been reset!',
-    'sent'     => 'We have e-mailed your password reset link!',
-    'token'    => 'This password reset token is invalid.',
-    'user'     => "We can't find a user with that e-mail address.",
-    "old_password" => "Your current password does not matches with the password you provided. Please try again.",
-    "same_password" => "New password cannot be same as your current password. Please choose a different password."
+    'password' => 'Пароли должны быть иметь покрайней мере 6 символов и соответствовать подтверждению пароля',
+    'reset'    => 'Ваш пароль был установлен!',
+    'sent'     => 'Мы отправили вам письмо с ссылкой на восстановление пароля!',
+    'token'    => 'Этот токен для восстановления пароля не валиденю.',
+    'user'     => "Мы не можем найти пользователя с таким адресом эл. почты.",
+    "old_password" => "Ваш текущий пароль не соответствует с паролем который вы передали. Пожалуйста попробуйте снова.",
+    "same_password" => "Новый пароль не может быть таким же как и текущий. Пожалуйста выберить другой пароль."
 ];

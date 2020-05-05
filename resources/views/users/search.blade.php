@@ -14,7 +14,7 @@
     {{ Form::text('q', request('q'), ['class' => 'form-control', 'placeholder' => trans('app.search_your_family_placeholder')]) }}
     <span class="input-group-btn">
         {{ Form::submit(trans('app.search'), ['class' => 'btn btn-default']) }}
-        {{ link_to_route('users.search', 'Reset', [], ['class' => 'btn btn-default']) }}
+        {{ link_to_route('users.search', trans('user.reset'), [], ['class' => 'btn btn-default']) }}
     </span>
 </div>
 {{ Form::close() }}

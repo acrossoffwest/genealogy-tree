@@ -2,26 +2,26 @@
 
 return [
     // Labels
-    'index_title' => 'Database Backup Manager',
-    'list'        => 'Backup File List',
-    'actions'     => 'Actions',
-    'empty'       => 'No backup file available.',
+    'index_title' => 'Бэкап менеджер базы данных',
+    'list'        => 'Список резервных копий',
+    'actions'     => 'Действия',
+    'empty'       => 'Нет доступных резервных копий.',
 
     // Actions
-    'create'              => 'Create Backup File',
-    'delete'              => 'Delete this backup file',
-    'sure_to_delete_file' => 'Are you sure to delete this file <strong>":filename"</strong>?',
-    'confirm_delete'      => 'YES, please delete this file!',
-    'cancel_delete'       => 'Cancel Delete',
-    'restore'             => 'Restore database from file',
-    'sure_to_restore'     => 'Are you sure to restore database with this backup file "<strong>:filename</strong>"? <br><br>Please make sure your <strong>current database has been backed up</strong>.',
-    'confirm_restore'     => 'YES, Restore Database!',
-    'cancel_restore'      => 'Cancel Restore',
-    'download'            => 'Download this file',
-    'upload'              => 'Upload Backup File',
+    'create'              => 'Создать резервную копию',
+    'delete'              => 'Удалить эту резервную копию',
+    'sure_to_delete_file' => 'Вы уверены что хотите удалить этот файл <strong>":filename"</strong>?',
+    'confirm_delete'      => 'ДА, пожалуйста удалите этот файл!',
+    'cancel_delete'       => 'Отменить удаление',
+    'restore'             => 'Восстановить базу данных из файла',
+    'sure_to_restore'     => 'Вы уверены что хотите восстановить базу данных их этого бэкап файла "<strong>:filename</strong>"? <br><br>Пожалуйста убедитесь что <strong>вы сделали резервную копию текущей базы данных</strong>.',
+    'confirm_restore'     => 'ДА, восстановить базу данных!',
+    'cancel_restore'      => 'Отменить восстановление',
+    'download'            => 'Скачать этот файл',
+    'upload'              => 'Загрузить файл резервной копии',
 
     // Attributes
-    'file_name'  => 'File Name',
-    'file_size'  => 'File Size',
-    'created_at' => 'Created at',
+    'file_name'  => 'Имя файла',
+    'file_size'  => 'Размер файла',
+    'created_at' => 'Создано',
 ];

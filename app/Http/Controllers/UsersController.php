@@ -189,7 +189,7 @@ class UsersController extends Controller
             Storage::delete($user->photo_path);
         }
 
-        $user->photo_path = $request->photo->store('images');
+        $user->photo_path = $request->photo->store('user_photos');
         $user->save();
 
         return back();

@@ -24,12 +24,22 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id', 'birth_order',
-        'nickname', 'gender_id', 'name',
-        'email', 'password',
-        'address', 'phone',
-        'dob', 'yob', 'dod', 'yod', 'city',
-        'father_id', 'mother_id', 'parent_id',
+        'id',
+        'birth_order',
+        'nickname',
+        'gender_id', 'name',
+        'email',
+        'password',
+        'address',
+        'phone',
+        'dob',
+        'yob',
+        'dod',
+        'yod',
+        'city',
+        'father_id',
+        'mother_id',
+        'parent_id',
     ];
 
     /**
@@ -38,7 +48,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     protected $appends = [

@@ -123,7 +123,13 @@ class UsersController extends Controller
      */
     public function update(UpdateRequest $request, User $user)
     {
-        $user->update($request->validated());
+        $data = $request->validated();
+
+        if (is_null($data['password'])) {
+            unset($data['password']);
+        }
+
+        $user->update();
 
         return redirect()->route('users.show', $user->id);
     }

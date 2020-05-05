@@ -1,0 +1,69 @@
+version: "2.0"
+
+services:
+  nginx:
+    image: nginx:1.17
+    volumes:
+      - "${APP_DIR}:/var/www/html:ro"
+      - "${NGINX_CONF_DIR}:/etc/nginx/conf.d"
+    depends_on:
+      - php
+      # - phpmyadmin
+    networks:
+      - server
+      - nginx-proxy-network
+      - database
+    environment:
+      - VIRTUAL_HOST=${DOMAINS},${PMA_DOMAIN}
+
+  php:
+    build: ./php
+    volumes:
+      - "${APP_DIR}:/var/www/html"
+      - "./supervisor:/etc/supervisor"
+      - "./cron.d:/etc/cron.d"
+      - "./php/custom.ini:/usr/local/etc/php/conf.d/custom.ini"
+    depends_on:
+      - mysql
+    networks:
+      - database
+      - server
+
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - /var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
+      MYSQL_DATABASE: "${DB_NAME}"
+      MYSQL_USER: "${DB_USERNAME}"
+      MYSQL_PASSWORD: "${DB_PASSWORD}"
+    networks:
+      - database
+
+#  phpmyadmin:
+#    image: phpmyadmin/phpmyadmin
+#    expose:
+#      - "80"
+#    environment:
+#      PMA_HOST: mysql
+#    depends_on:
+#      - mysql
+#    networks:
+#      - database
+
+  redis:
+    image: redis:5.0.4
+    command: redis-server --requirepass "${REDIS_PASSWORD}"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=no
+      - REDIS_PASSWORD="${REDIS_PASSWORD}"
+    networks:
+      - database
+
+networks:
+  database:
+  server:
+  nginx-proxy-network:
+    external:
+        name: reverseproxy_default

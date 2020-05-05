@@ -90,8 +90,8 @@ return [
     |
     */
 
-    'locale' => env('APP_LANGUAGE', 'id'),
-    'locale_in_navbar' => env('APP_LANGUAGES_IN_NAVBAR', 'id,en,rus'),
+    'locale' => env('APP_LANGUAGE', 'rus'),
+    'locale_in_navbar' => env('APP_LANGUAGES_IN_NAVBAR', 'rus,en,id'),
 
     /*
     |--------------------------------------------------------------------------
@@ -104,7 +104,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'rus',
 
     /*
     |--------------------------------------------------------------------------

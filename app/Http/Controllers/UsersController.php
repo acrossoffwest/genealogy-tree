@@ -268,9 +268,22 @@ class UsersController extends Controller
         $allMariageList = [];
 
         foreach (Couple::with('husband', 'wife')->get() as $couple) {
-            $allMariageList[$couple->id] = $couple->husband->name.' & '.$couple->wife->name;
+            $husband = $couple->husband;
+            $wife = $couple->wife;
+            $names = [];
+            $this->addSupouse($names, $husband);
+            $this->addSupouse($names, $wife);
+            $allMariageList[$couple->id] = implode(' & ', $names);
         }
 
         return $allMariageList;
+    }
+
+    private function addSupouse(&$names, $supouse = null)
+    {
+        if (is_null($supouse)) {
+            return;
+        }
+        $names[] = $supouse->name;
     }
 }

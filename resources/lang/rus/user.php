@@ -31,6 +31,7 @@ return [
     'add_wife'                        => 'Добавить жену',
     'add_husband'                     => 'Добавить мужа',
     'add_child'                       => 'Добавить ребёнка',
+    'delete_child'                       => 'Удалить ребёнка',
     'add_child_from_existing_couples' => 'Родитель (выбран супруг :name)',
 
     // Attributes

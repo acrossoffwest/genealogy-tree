@@ -119,6 +119,27 @@ class FamilyActionsController extends Controller
     }
 
     /**
+     * Delete child for a user.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\User  $user
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function deleteChild(Request $request, User $user)
+    {
+        $request->validate([
+            'delete_child_id'=> 'required|exists:users,id'
+        ]);
+
+        /** @var User $child */
+        $child = User::query()->findOrFail($request->get('delete_child_id'));
+
+        $child->unsetParent($user);
+
+        return back();
+    }
+
+    /**
      * Add wife for male user.
      *
      * @param  \Illuminate\Http\Request  $request

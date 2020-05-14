@@ -86,6 +86,17 @@ class User extends Authenticatable
         return false;
     }
 
+    public function unsetParent(User $parent)
+    {
+        if ($parent->id === $this->father_id) {
+            $this->father_id = null;
+        } else {
+            $this->mother_id === null;
+        }
+
+        $this->save();
+    }
+
     public function setMother(User $mother)
     {
         if ($mother->gender_id == 2) {

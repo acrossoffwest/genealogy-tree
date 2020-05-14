@@ -11,7 +11,10 @@
     <ul class="list-group">
         @forelse($user->childs as $child)
             <li class="list-group-item">
-                {{ $child->profileLink() }} ({{ $child->gender }})
+                {{ Form::open(['method' => 'delete', 'url' => route('family-actions.delete-child', $user->id)]) }}
+                <input type="hidden" name="delete_child_id" value="{{ $child->id }}">
+                {{ $child->profileLink() }} ({{ $child->gender }}) {{ Form::submit(__('user.delete_child'), ['class' => 'btn btn-warning btn-sm']) }}
+                {{ Form::close() }}
             </li>
         @empty
             <li class="list-group-item">{{ __('app.childs_were_not_recorded') }}</li>

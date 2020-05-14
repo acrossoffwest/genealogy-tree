@@ -16,6 +16,8 @@ Genealogy (Silsilah) application to record our family members.
 ## Features
 This application uses Bahasa Indonesia and English based on `config.locale`.
 
+### Users can't register to system directly. Users adding possible only by already added users.
+
 ### Logic Concept
 1. A person can have one father
 2. A person can have one mother
@@ -60,17 +62,17 @@ This application can be installed on local server and online server with these s
 
 ### Installation Steps
 
-1. Clone the repo : `git clone https://github.com/nafiesl/silsilah.git`
-2. `cd silsilah`
+1. Clone the repo : `git clone https://github.com/acrossoffwest/genealogy-tree.git`
+2. `cd genealogy-tree`
 3. `composer install`
 4. `cp .env.example .env`
 5. `php artisan key:generate`
 6. Create **database on MySQL**
 7. **Set database credentials** on `.env` file
-8. `php artisan migrate`
+8. `php artisan migrate --seed`
 9. `php artisan storage:link`
 10. `php artisan serve`
-11. Done (Register as new user to start using the application).
+11. Done (Log in to system by default admin credentials: Email: `admin@genealogy.localhost`, Password: `password1234`).
 
 ## Testing
 This application built with testing (TDD) using in-memory sqlite database.

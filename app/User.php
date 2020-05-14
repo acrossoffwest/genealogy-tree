@@ -91,7 +91,7 @@ class User extends Authenticatable
         if ($parent->id === $this->father_id) {
             $this->father_id = null;
         } else {
-            $this->mother_id === null;
+            $this->mother_id = null;
         }
 
         $this->save();

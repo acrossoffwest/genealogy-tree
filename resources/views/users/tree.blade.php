@@ -79,11 +79,11 @@ $ggccTotal = 0;
     <div class="col-md-1 text-left"><strong style="font-size:30px">{{ $grandChildsTotal }}</strong></div>
     @endif
     @if ($ggTotal)
-    <div class="col-md-1 text-right">{{ trans('app.levels_count') }}</div>
+    <div class="col-md-1 text-right">{{ trans('app.grand_grand_child_count') }}</div>
     <div class="col-md-1 text-left"><strong style="font-size:30px">{{ $ggTotal }}</strong></div>
     @endif
     @if ($ggcTotal)
-    <div class="col-md-1 text-right">Jumlah Canggah</div>
+    <div class="col-md-1 text-right">{{ trans('app.levels_count') }}</div>
     <div class="col-md-1 text-left"><strong style="font-size:30px">{{ $ggcTotal }}</strong></div>
     @endif
     @if ($ggccTotal)

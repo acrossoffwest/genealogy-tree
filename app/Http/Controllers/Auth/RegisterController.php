@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
 use Ramsey\Uuid\Uuid;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 class RegisterController extends Controller
 {
@@ -65,17 +66,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $user = User::create([
-            'id' => Uuid::uuid4()->toString(),
-            'nickname' => $data['nickname'],
-            'name' => $data['name'],
-            'gender_id' => $data['gender_id'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
-        $user->manager_id = $user->id;
-        $user->save();
-
-        return $user;
+        throw new AccessDeniedHttpException();
     }
 }

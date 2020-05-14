@@ -17,11 +17,13 @@
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
-            <!-- Left Side Of Navbar -->
-            <ul class="nav navbar-nav">
-                <li><a href="{{ route('users.search') }}">{{ __('app.search_your_family') }}</a></li>
-                <li><a href="{{ route('birthdays.index') }}">{{ __('birthday.birthday') }}</a></li>
-            </ul>
+            @if(!auth()->guest())
+                <!-- Left Side Of Navbar -->
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ route('users.search') }}">{{ __('app.search_your_family') }}</a></li>
+                    <li><a href="{{ route('birthdays.index') }}">{{ __('birthday.birthday') }}</a></li>
+                </ul>
+            @endif
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
@@ -30,10 +32,7 @@
                 @foreach(explode(',', config('app.locale_in_navbar')) as $locale)
                     <li><a href="{{ url(url()->current() . $mark . 'lang='.$locale) }}">{{ $locale }}</a></li>
                 @endforeach
-                @if (Auth::guest())
-                    <li><a href="{{ route('login') }}">{{ trans('auth.login') }}</a></li>
-                    <li><a href="{{ route('register') }}">{{ trans('auth.register') }}</a></li>
-                @else
+                @if (!auth()->guest())
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ Auth::user()->name }} <span class="caret"></span>

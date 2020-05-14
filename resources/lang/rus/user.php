@@ -17,7 +17,7 @@ return [
     'grand_father' => 'Дедушка',
     'nieces'       => 'Племянники',
     'marriages'    => 'Браки',
-    'birth_order'  => 'Дата рождения',
+    'birth_order'  => 'Очерёдность рождения',
     'age'          => 'Возвраст',
     'age_years'    => 'год|года',
     'reset'    => 'Сбросить',
